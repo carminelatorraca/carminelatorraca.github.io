@@ -1,5 +1,5 @@
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am an Application Developer at [IBM](http://ibm.com), where I have the opportunity to work on innovative projects aimed at improving and optimizing business processes through automation. My passion for technology and programming has driven me to specialize in this field, where every day presents new challenges and opportunities.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+In addition I am currently studying Computer Science at the [Università Degli Studi di Salerno](http://unisa.it). 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+The combination of my theoretical education and practical experience allows me to approach work challenges with a broad and informed perspective.
