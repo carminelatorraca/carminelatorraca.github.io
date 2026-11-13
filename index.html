@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carmine La Torraca — Software &amp; RPA Developer</title>
+<meta name="description" content="Carmine La Torraca, Software &amp; RPA Developer at IBM, Energy &amp; Utilities. Computer Science student at the Università degli Studi di Salerno.">
+<meta name="author" content="Carmine La Torraca">
+<link rel="canonical" href="https://carminelatorraca.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Carmine La Torraca — Software &amp; RPA Developer">
+<meta property="og:description" content="Software &amp; RPA Developer at IBM, Energy &amp; Utilities. Computer Science student at the Università degli Studi di Salerno.">
+<meta property="og:url" content="https://carminelatorraca.github.io/">
+
+<style>
+/* layout: product-portfolio pattern — sticky top bar with nav + CV pill, hero, then three
+   filterable/listed sections (projects, certifications, skills) built from the same card unit */
+:root{
+  --bg:#ffffff;
+  --panel:#f6f6f8;
+  --fg:#121214;
+  --fg-dim:#6c6c74;
+  --accent:#121214;
+  --accent-fg:#ffffff;
+  --line:#e7e7eb;
+  --chip:#f0f0f3;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#131316;
+    --panel:#1c1c20;
+    --fg:#f3f3f5;
+    --fg-dim:#9b9ba3;
+    --accent:#f3f3f5;
+    --accent-fg:#121214;
+    --line:rgba(243,243,245,0.12);
+    --chip:#222227;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131316;
+  --panel:#1c1c20;
+  --fg:#f3f3f5;
+  --fg-dim:#9b9ba3;
+  --accent:#f3f3f5;
+  --accent-fg:#121214;
+  --line:rgba(243,243,245,0.12);
+  --chip:#222227;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:760px;margin:0 auto}
+h1,h2{letter-spacing:-0.02em;text-wrap:balance;margin:0}
+
+/* nav */
+nav{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:var(--bg);border-bottom:1px solid var(--line);
+  padding-block:14px;
+}
+nav .row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{font-weight:700;font-size:1rem}
+.navlinks{display:flex;gap:20px;font-size:0.86rem;color:var(--fg-dim)}
+.navlinks a{color:inherit;text-decoration:none}
+.navlinks a:hover{color:var(--fg)}
+.navright{display:flex;align-items:center;gap:10px}
+.pill-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--accent);color:var(--accent-fg);
+  font-size:0.82rem;font-weight:600;
+  padding:9px 16px;border-radius:999px;
+  text-decoration:none;white-space:nowrap;
+}
+.pill-btn svg{width:13px;height:13px;flex:none}
+#theme-btn{
+  background:none;border:1px solid var(--line);color:var(--fg-dim);
+  border-radius:999px;width:30px;height:30px;cursor:pointer;flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:0.9rem;
+}
+#theme-btn:hover{color:var(--fg);border-color:var(--fg-dim)}
+@media (max-width:560px){ .navlinks{display:none} }
+
+/* hero */
+.hero{padding-block:48px 56px;text-align:left}
+.avatar{
+  width:76px;height:76px;border-radius:50%;
+  background:var(--panel);border:1px solid var(--line);
+  object-fit:cover;
+  display:block;
+  margin-bottom:22px;
+}
+.hero h1{font-size:2.1rem;font-weight:800;margin-bottom:10px}
+.hero p{color:var(--fg-dim);font-size:1rem;max-width:50ch;margin:0}
+
+/* sections */
+section{padding-block:40px;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.sec-head h2{font-size:1.3rem;font-weight:700}
+.sec-head .count{font-size:0.82rem;color:var(--fg-dim)}
+
+/* filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.filter{
+  border:1px solid var(--line);background:none;color:var(--fg-dim);
+  font-size:0.8rem;font-weight:500;padding:7px 14px;border-radius:999px;
+  cursor:pointer;font-family:inherit;
+}
+.filter.active{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+
+/* experience / education */
+.elist{display:flex;flex-direction:column;gap:12px}
+.ecard{
+  display:flex;gap:14px;
+  border:1px solid var(--line);border-radius:14px;padding:16px;
+  background:var(--panel);
+}
+.ecard .badge{
+  width:40px;height:40px;border-radius:50%;flex:none;
+  background:var(--chip);display:flex;align-items:center;justify-content:center;
+  color:var(--fg-dim);
+}
+.ecard .badge svg{width:18px;height:18px}
+.ecard .info{flex:1;min-width:0}
+.ecard .toprow{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ecard h3{font-size:0.92rem;font-weight:600;margin:0}
+.ecard .when{font-size:0.76rem;color:var(--fg-dim);white-space:nowrap}
+.ecard .org{font-size:0.82rem;color:var(--fg-dim);margin:2px 0 6px;display:block}
+.ecard p{font-size:0.82rem;color:var(--fg-dim);margin:0}
+
+/* project cards */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pcard{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+.pcard .thumb{
+  aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;
+  color:var(--fg-dim);font-size:0.78rem;font-weight:500;
+  background:
+    repeating-linear-gradient(135deg, var(--line) 0 1px, transparent 1px 14px);
+}
+.pcard.placeholder .thumb{border-bottom:1px dashed var(--line)}
+.pcard .body{padding:14px 16px 16px}
+.pcard .tagrow{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pcard .dot{width:18px;height:18px;border-radius:50%;flex:none}
+.pcard h3{font-size:0.92rem;font-weight:600;margin:0}
+.pcard p{font-size:0.8rem;color:var(--fg-dim);margin:4px 0 0}
+
+/* certifications */
+.clist{display:flex;flex-direction:column;gap:12px}
+.ccard{
+  display:flex;align-items:center;gap:14px;
+  border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+  background:var(--panel);
+}
+.ccard.placeholder{border-style:dashed;background:none}
+.ccard .badge{
+  width:40px;height:40px;border-radius:50%;flex:none;
+  background:var(--chip);display:flex;align-items:center;justify-content:center;
+  color:var(--fg-dim);
+}
+.ccard .badge svg{width:18px;height:18px}
+.ccard .info{flex:1;min-width:0}
+.ccard h3{font-size:0.9rem;font-weight:600;margin:0 0 2px}
+.ccard .issuer{font-size:0.78rem;color:var(--fg-dim)}
+.ccard .link{font-size:0.78rem;font-weight:600;color:var(--fg);text-decoration:none;white-space:nowrap}
+.ccard .link:hover{text-decoration:underline}
+
+/* skills */
+.skillblock{margin-bottom:20px}
+.skillblock:last-child{margin-bottom:0}
+.skillblock .label{font-size:0.78rem;font-weight:600;color:var(--fg-dim);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  background:var(--chip);color:var(--fg);
+  font-size:0.82rem;font-weight:500;
+  padding:7px 13px;border-radius:999px;
+}
+
+/* contact */
+.contact-row{display:flex;flex-wrap:wrap;gap:12px}
+.ccontact{
+  flex:1;min-width:200px;
+  border:1px solid var(--line);border-radius:14px;padding:16px;
+  background:var(--panel);display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.ccontact .k{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--fg-dim);display:block;margin-bottom:4px}
+.ccontact .v{font-size:0.88rem;font-weight:600}
+.ccontact .v.dim{font-weight:400;color:var(--fg-dim)}
+.ccontact a{color:var(--fg);text-decoration:none}
+.ccontact a:hover{text-decoration:underline}
+.copy-btn{background:none;border:none;color:var(--fg-dim);font-size:0.75rem;cursor:pointer;font-family:inherit}
+.copy-btn:hover{color:var(--fg)}
+
+footer{padding-block:28px;border-top:1px solid var(--line);font-size:0.8rem;color:var(--fg-dim)}
+
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.7rem}
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+</head>
+<body>
+<nav>
+  <div class="wrap row">
+    <span class="brand">carmine.</span>
+    <div class="navlinks">
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="navright">
+      <a class="pill-btn" href="assets/pdf/LaTorraca_Carmine_CV.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M5 19h14"/></svg>
+        Download CV
+      </a>
+      <button id="theme-btn" type="button" aria-label="Toggle theme">◐</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <div class="hero">
+    <img class="avatar" src="assets/img/avatar.jpg" alt="Carmine La Torraca" width="76" height="76" loading="eager">
+    <h1>Hi, I'm Carmine.</h1>
+    <p>Software &amp; RPA Developer at IBM, currently completing a Bachelor's degree in Computer Science at Università degli Studi di Salerno.<br><br>Over the past 2+ years I've worked on projects for a major company in the energy and utilities sector, managing Java based software and automation processes built in UiPath.</p>
+  </div>
+
+  <section id="experience">
+    <div class="sec-head">
+      <h2>Experience</h2>
+    </div>
+    <div class="elist">
+      <div class="ecard">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="info">
+          <div class="toprow"><h3>Application Developer</h3><span class="when">Mar 2024 — present</span></div>
+          <span class="org">IBM · Full-time · Naples, Campania, Italy · Hybrid</span>
+          <p>Developed and re-designed RPA solutions from scratch to automate business processes, reducing processing time per item by over 55% and maintaining a 99.6% success rate, while handling 250–300 queue items per month, with peaks of up to 200 items per day.</p>
+          <p style="margin-top:8px">Proactively monitored service quality, identifying potential issues and contributing to preventive improvements and application enhancements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head">
+      <h2>Education</h2>
+    </div>
+    <div class="elist">
+      <div class="ecard">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+        </div>
+        <div class="info">
+          <div class="toprow"><h3>Bachelor's degree, Computer Science</h3><span class="when">Ongoing · GPA 3.60/4</span></div>
+          <span class="org">Università degli Studi di Salerno</span>
+          <p>Programming, Algorithms and Data Structures, Databases and Data Management, Operating Systems and Computer Architecture, Software Engineering and Development Methodologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head">
+      <h2>Projects</h2>
+    </div>
+    <div class="filters">
+      <button class="filter active" type="button" data-filter="all">All</button>
+      <button class="filter" type="button" data-filter="automation">Automation</button>
+      <button class="filter" type="button" data-filter="web">Web App</button>
+    </div>
+    <div class="grid" id="project-grid">
+      <div class="pcard" data-cat="web">
+        <div class="thumb" style="background-image:url(assets/img/autovip.jpg);background-size:cover;background-position:center"></div>
+        <div class="body">
+          <div class="tagrow"><span class="dot" style="background:#ff7a3d"></span><h3>Autovip</h3></div>
+          <p>Web application for an automotive company.</p>
+        </div>
+      </div>
+      <div class="pcard" data-cat="web">
+        <div class="thumb">allenai</div>
+        <div class="body">
+          <div class="tagrow"><span class="dot" style="background:#7066ff"></span><h3>AllenAI</h3></div>
+          <p>Personal web app, in progress.</p>
+        </div>
+      </div>
+      <div class="pcard" data-cat="web">
+        <div class="thumb">expenses</div>
+        <div class="body">
+          <div class="tagrow"><span class="dot" style="background:#2bb673"></span><h3>Expense tracker</h3></div>
+          <p>Personal expense management app, in progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="sec-head">
+      <h2>Certifications</h2>
+    </div>
+    <div class="clist">
+      <div class="ccard">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg>
+        </div>
+        <div class="info">
+          <h3>Automation Developer Associate Training</h3>
+          <span class="issuer">UiPath</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><h2>Skills &amp; stack</h2></div>
+    <div class="skillblock">
+      <div class="label">Languages</div>
+      <div class="chips">
+        <span class="chip">Java</span>
+        <span class="chip">PHP</span>
+        <span class="chip">C</span>
+        <span class="chip">SQL</span>
+      </div>
+    </div>
+    <div class="skillblock">
+      <div class="label">Frameworks &amp; databases</div>
+      <div class="chips">
+        <span class="chip">Laravel</span>
+        <span class="chip">PostgreSQL</span>
+      </div>
+    </div>
+    <div class="skillblock">
+      <div class="label">RPA &amp; automation</div>
+      <div class="chips">
+        <span class="chip">UiPath</span>
+        <span class="chip">Process analysis</span>
+      </div>
+    </div>
+    <div class="skillblock">
+      <div class="label">Tools</div>
+      <div class="chips">
+        <span class="chip">Docker</span>
+        <span class="chip">Git</span>
+        <span class="chip">Linux</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head"><h2>Contact</h2></div>
+    <div class="contact-row">
+      <div class="ccontact">
+        <div><span class="k">Email</span><span class="v">carminelatorracas@gmail.com</span></div>
+      </div>
+      <div class="ccontact">
+        <div><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/carminelatorraca" target="_blank" rel="noopener">view profile</a></span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Carmine La Torraca</div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var btn=document.getElementById('theme-btn');
+    var saved=localStorage.getItem('theme');
+    if(saved==='light'||saved==='dark'){document.documentElement.setAttribute('data-theme',saved);}
+    btn.addEventListener('click',function(){
+      var cur=document.documentElement.getAttribute('data-theme');
+      var next;
+      if(!cur){
+        next=window.matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark';
+      } else {
+        next=cur==='dark'?'light':'dark';
+      }
+      document.documentElement.setAttribute('data-theme',next);
+      try{localStorage.setItem('theme',next);}catch(e){}
+    });
+  }catch(e){}
+
+  document.querySelectorAll('.copy-btn[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var text=b.getAttribute('data-copy');
+      var done=function(){var old=b.textContent;b.textContent='copied';setTimeout(function(){b.textContent=old;},1200);};
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){
+          var r=document.createRange();var sel=window.getSelection();
+          var tmp=document.createElement('span');tmp.textContent=text;document.body.appendChild(tmp);
+          r.selectNode(tmp);sel.removeAllRanges();sel.addRange(r);
+          try{document.execCommand('copy');}catch(e2){}
+          sel.removeAllRanges();document.body.removeChild(tmp);
+          done();
+        });
+      }
+    });
+  });
+
+  var filters=document.querySelectorAll('.filter');
+  var cards=document.querySelectorAll('#project-grid .pcard');
+  filters.forEach(function(f){
+    f.addEventListener('click',function(){
+      filters.forEach(function(x){x.classList.remove('active')});
+      f.classList.add('active');
+      var cat=f.getAttribute('data-filter');
+      cards.forEach(function(c){
+        c.hidden = !(cat==='all' || c.getAttribute('data-cat')===cat);
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
